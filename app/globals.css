@@ -376,17 +376,24 @@ body {
 /* ────────── KPI ────────── */
 .kpi-number {
   font-family: 'Space Grotesk', 'Inter', sans-serif;
-  font-size: clamp(48px, 7vw, 88px);
-  line-height: 0.95;
-  letter-spacing: -0.04em;
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 1.05;
+  letter-spacing: -0.035em;
   font-weight: 800;
+  overflow-wrap: anywhere;
+  word-break: normal;
+  hyphens: none;
+  max-width: 100%;
 }
 
 .kpi-unit {
-  font-size: 0.4em;
+  font-size: 0.42em;
   color: var(--gold);
   font-weight: 600;
   letter-spacing: 0;
+  display: inline-block;
+  margin-left: 4px;
+  white-space: nowrap;
 }
 
 /* ────────── GLOSSARY ────────── */

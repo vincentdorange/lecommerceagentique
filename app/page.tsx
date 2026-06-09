@@ -448,7 +448,7 @@ export default function HomePage() {
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 24 }}>
               {STATS.map((s) => (
                 <div key={s.label} className="glow-card" style={{ padding: 32 }}>
-                  <div className="kpi-number gradient-gold" style={{ fontSize: 'clamp(48px, 6vw, 76px)' }}>{s.figure}</div>
+                  <div className="kpi-number gradient-gold">{s.figure}</div>
                   <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: 16, fontWeight: 700, marginTop: 12, marginBottom: 8 }}>{s.label}</div>
                   <p style={{ fontSize: 14, color: 'var(--gray-1)', lineHeight: 1.6, marginBottom: 16 }}>{s.desc}</p>
                   <div style={{ fontSize: 11, color: 'var(--gold)', letterSpacing: '0.08em', textTransform: 'uppercase', fontFamily: "'JetBrains Mono', monospace" }}>{s.src}</div>
@@ -898,7 +898,6 @@ export default function HomePage() {
                 <div style={{ fontSize: 11, color: 'var(--gold)', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 16, fontWeight: 700 }}>Écosystème ACF®</div>
                 <ul style={{ listStyle: 'none', fontSize: 14, color: 'var(--gray-1)', display: 'grid', gap: 10 }}>
                   <li><Link href="https://acfstandard.com" style={{ color: 'var(--gray-1)', textDecoration: 'none' }}>ACF Standard ↗</Link></li>
-                  <li><Link href="https://acf-compliance.com" style={{ color: 'var(--gray-1)', textDecoration: 'none' }}>ACF Compliance ↗</Link></li>
                   <li><Link href="https://www.acf-score.com" style={{ color: 'var(--gray-1)', textDecoration: 'none' }}>ACF Score ↗</Link></li>
                 </ul>
               </div>
