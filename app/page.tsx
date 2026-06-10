@@ -6,18 +6,18 @@ import NewsletterForm from './components/NewsletterForm'
 // ════════════════════════════════════════════════════
 
 const GLOSSARY = [
-  { id: 'commerce-agentique', term: 'Commerce agentique', short: 'a-commerce', def: "Modèle de commerce en ligne où des agents logiciels autonomes (IA) exécutent tout ou partie du processus d'achat à la place de l'utilisateur." },
-  { id: 'a-commerce', term: 'A-commerce', short: 'Synonyme', def: "Désigne la nouvelle catégorie de transactions e-commerce assistées par agents IA, par analogie avec e-commerce (electronic), m-commerce (mobile) et s-commerce (social)." },
-  { id: 'agent-autonome', term: 'Agent IA autonome', short: 'Autonomous AI agent', def: "Programme logiciel basé sur un LLM capable de raisonner, planifier et exécuter des actions multi-étapes pour atteindre un objectif." },
-  { id: 'mcp', term: 'Model Context Protocol', short: 'MCP — Anthropic', def: "Protocole ouvert publié par Anthropic le 25 novembre 2024, permettant aux agents IA de se connecter aux systèmes commerciaux." },
-  { id: 'acp', term: 'Agentic Commerce Protocol', short: 'ACP — Stripe + OpenAI', def: "Protocole co-publié par Stripe et OpenAI en 2025 pour standardiser les paiements initiés par agents IA." },
-  { id: 'tap', term: 'Trusted Agent Protocol', short: 'TAP — Visa', def: "Protocole Visa du 14 octobre 2025 pour l'authentification des agents IA, basé sur signature Ed25519." },
-  { id: 'agent-pay', term: 'Agent Pay', short: 'Mastercard', def: "Solution Mastercard 2025 pour le règlement de transactions agentiques avec consentement explicite." },
-  { id: 'operator', term: 'Operator', short: 'OpenAI', def: "Agent IA publié par OpenAI le 23 janvier 2025, capable de naviguer sur le web pour l'utilisateur." },
-  { id: 'mariner', term: 'Project Mariner', short: 'Google', def: "Agent IA navigateur publié par Google en décembre 2024." },
-  { id: 'governance', term: 'Gouvernance agentique', short: 'Discipline', def: "Discipline encadrant le comportement des agents IA : autonomie, supervision, traçabilité, kill switch." },
-  { id: 'ddao', term: 'DDAO', short: 'Designated Delegated Agent Officer', def: "Rôle nommé proposé par le standard ACF® sur le modèle du DPO ou du CISO. Le DDAO est la personne (ou l'organe collégial) responsable de la supervision continue d'un agent IA autonome en production : validation des décisions critiques, arbitrage en cas d'escalade, suivi des dérives." },
-  { id: 'audit-trail', term: 'Audit trail cryptographique', short: 'Preuve technique', def: "Chaîne d'événements signés Ed25519 + SHA-256 qui documente chaque décision d'un agent IA." },
+  { id: 'commerce-agentique', term: 'Commerce agentique', short: 'a-commerce', oneLine: "Le commerce où un agent IA achète à votre place.", def: "Modèle de commerce en ligne où des agents logiciels autonomes (IA) exécutent tout ou partie du processus d'achat à la place de l'utilisateur." },
+  { id: 'a-commerce', term: 'A-commerce', short: 'Synonyme', oneLine: "Le mot court pour « commerce agentique ».", def: "Désigne la nouvelle catégorie de transactions e-commerce assistées par agents IA, par analogie avec e-commerce (electronic), m-commerce (mobile) et s-commerce (social)." },
+  { id: 'agent-autonome', term: 'Agent IA autonome', short: 'Autonomous AI agent', oneLine: "Un LLM qui raisonne, décide et agit seul.", def: "Programme logiciel basé sur un LLM capable de raisonner, planifier et exécuter des actions multi-étapes pour atteindre un objectif." },
+  { id: 'mcp', term: 'Model Context Protocol', short: 'MCP — Anthropic', oneLine: "Le câble qui branche les agents IA aux outils.", def: "Protocole ouvert publié par Anthropic le 25 novembre 2024, permettant aux agents IA de se connecter aux systèmes commerciaux." },
+  { id: 'acp', term: 'Agentic Commerce Protocol', short: 'ACP — Stripe + OpenAI', oneLine: "Le standard de paiement quand l'agent paie.", def: "Protocole co-publié par Stripe et OpenAI en 2025 pour standardiser les paiements initiés par agents IA." },
+  { id: 'tap', term: 'Trusted Agent Protocol', short: 'TAP — Visa', oneLine: "Le passeport cryptographique de l'agent IA.", def: "Protocole Visa du 14 octobre 2025 pour l'authentification des agents IA, basé sur signature Ed25519." },
+  { id: 'agent-pay', term: 'Agent Pay', short: 'Mastercard', oneLine: "La carte bancaire de l'agent IA, avec consentement.", def: "Solution Mastercard 2025 pour le règlement de transactions agentiques avec consentement explicite." },
+  { id: 'operator', term: 'Operator', short: 'OpenAI', oneLine: "L'agent qui clique sur le web à votre place.", def: "Agent IA publié par OpenAI le 23 janvier 2025, capable de naviguer sur le web pour l'utilisateur." },
+  { id: 'mariner', term: 'Project Mariner', short: 'Google', oneLine: "La réponse Google à Operator.", def: "Agent IA navigateur publié par Google en décembre 2024." },
+  { id: 'governance', term: 'Gouvernance agentique', short: 'Discipline', oneLine: "L'art d'encadrer un agent IA sans le brider.", def: "Discipline encadrant le comportement des agents IA : autonomie, supervision, traçabilité, kill switch." },
+  { id: 'ddao', term: 'DDAO', short: 'Designated Delegated Agent Officer', oneLine: "Le DPO des agents IA — la personne qui en répond.", def: "Rôle nommé proposé par le standard ACF® sur le modèle du DPO ou du CISO. Le DDAO est la personne (ou l'organe collégial) responsable de la supervision continue d'un agent IA autonome en production : validation des décisions critiques, arbitrage en cas d'escalade, suivi des dérives." },
+  { id: 'audit-trail', term: 'Audit trail cryptographique', short: 'Preuve technique', oneLine: "La boîte noire scellée qui prouve ce que l'agent a fait.", def: "Chaîne d'événements signés Ed25519 + SHA-256 qui documente chaque décision d'un agent IA." },
 ]
 
 const ACTORS = [
@@ -249,6 +249,7 @@ export default function HomePage() {
             <nav style={{ display: 'flex', gap: 22, alignItems: 'center', fontSize: 13, fontWeight: 500 }}>
               <a href="#definition" style={{ color: 'var(--gray-1)', textDecoration: 'none' }}>Définition</a>
               <a href="#etudes" style={{ color: 'var(--gray-1)', textDecoration: 'none' }}>Études</a>
+              <a href="#conformite" style={{ color: 'var(--gray-1)', textDecoration: 'none' }}>Conformité</a>
               <a href="#modes" style={{ color: 'var(--gray-1)', textDecoration: 'none' }}>Modes</a>
               <a href="#articles" style={{ color: 'var(--gray-1)', textDecoration: 'none' }}>Articles</a>
               <a href="#veille" style={{ color: 'var(--gray-1)', textDecoration: 'none' }}>Veille</a>
@@ -465,6 +466,84 @@ export default function HomePage() {
 
         <div className="divider-glow" />
 
+        {/* ════════════ CONFORMITÉ & SOUVERAINETÉ ════════════ */}
+        <section className="section" id="conformite">
+          <div className="container-x">
+            <div style={{ maxWidth: 820, marginBottom: 56 }}>
+              <span className="eyebrow">Conformité · Souveraineté</span>
+              <h2 className="display-2" style={{ marginBottom: 24 }}>
+                Ce dont personne<br />
+                <span className="gradient-gold">ne parle assez.</span>
+              </h2>
+              <p className="lead">
+                Pendant que tout le monde s'enthousiasme pour la prochaine démo d'agent, trois sujets se construisent en silence — et conditionnent la possibilité même de mettre un agent IA en production en Europe à partir de 2027.
+              </p>
+            </div>
+
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 24 }}>
+              {[
+                {
+                  eyebrow: 'Réglementation',
+                  title: 'EU AI Act haut-risque',
+                  date: '2 décembre 2027',
+                  desc: "Enforcement des obligations haut-risque pour les agents qui interviennent dans les services essentiels (crédit, assurance, santé, immobilier). Audit trail certifiable, supervision humaine qualifiée, traçabilité cryptographique exigée par défaut.",
+                  href: '/articles/ai-act-agents-commerciaux-haut-risque',
+                },
+                {
+                  eyebrow: 'Gouvernance',
+                  title: 'DDAO',
+                  date: 'Le DPO des agents IA',
+                  desc: "Designated Delegated Agent Officer : la personne ou l'organe collégial nommé responsable d'un agent en production. Validation des décisions critiques, arbitrage en cas d'escalade, suivi des dérives. Le rôle qui n'existait pas il y a 18 mois et qui va devenir incontournable.",
+                  href: '/articles/ddao-supervision-agents-ia',
+                },
+                {
+                  eyebrow: 'Cas d\'usage',
+                  title: 'Banque · Retail · Voyage',
+                  date: 'Là où ça brûle',
+                  desc: "Trois secteurs où les agents IA déclenchent déjà des transactions à valeur réelle — et où les enjeux d'auditabilité, de responsabilité et de souveraineté des données ne sont plus théoriques. Études concrètes et architectures observées.",
+                  href: '/articles/cas-usage-banque-retail-voyage',
+                },
+              ].map((c) => (
+                <Link
+                  key={c.title}
+                  href={c.href}
+                  className="glow-card"
+                  style={{
+                    padding: 28,
+                    textDecoration: 'none',
+                    color: 'inherit',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    background: 'var(--navy-2)',
+                  }}
+                >
+                  <div style={{ fontSize: 10, color: 'var(--gold)', letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 700, marginBottom: 14, fontFamily: "'JetBrains Mono', monospace" }}>
+                    {c.eyebrow}
+                  </div>
+                  <h3 style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: 22, fontWeight: 800, letterSpacing: '-0.02em', lineHeight: 1.15, color: 'var(--white)', marginBottom: 6 }}>
+                    {c.title}
+                  </h3>
+                  <div style={{ fontSize: 12, color: 'var(--gold)', fontFamily: "'JetBrains Mono', monospace", letterSpacing: '0.02em', marginBottom: 16, paddingBottom: 16, borderBottom: '1px solid var(--border)' }}>
+                    {c.date}
+                  </div>
+                  <p style={{ fontSize: 14, color: 'var(--gray-1)', lineHeight: 1.65, marginBottom: 18, flex: '1 1 auto' }}>
+                    {c.desc}
+                  </p>
+                  <div style={{ fontSize: 13, color: 'var(--gold)', fontWeight: 600 }}>
+                    Lire l'analyse <span style={{ fontSize: 14 }}>→</span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+
+            <p style={{ fontSize: 12, color: 'var(--gray-3)', marginTop: 32, lineHeight: 1.6, maxWidth: 820, fontStyle: 'italic' }}>
+              La couverture francophone de ces trois sujets reste fragmentaire — c'est précisément ce que ce média s'attache à corriger.
+            </p>
+          </div>
+        </section>
+
+        <div className="divider-glow" />
+
         {/* ════════════ MODES D'INTERACTION ════════════ */}
         <section className="section" id="modes">
           <div className="container-x">
@@ -636,8 +715,13 @@ export default function HomePage() {
 
             {/* Méthodologie / Légende */}
             <div className="glow-card" style={{ padding: 24, marginBottom: 32, background: 'var(--navy-2)' }}>
-              <div style={{ fontSize: 11, color: 'var(--gold)', letterSpacing: '0.12em', fontWeight: 700, marginBottom: 14, textTransform: 'uppercase' }}>
-                Méthodologie — 5 critères pondérés
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: 16, flexWrap: 'wrap', marginBottom: 14 }}>
+                <div style={{ fontSize: 11, color: 'var(--gold)', letterSpacing: '0.12em', fontWeight: 700, textTransform: 'uppercase' }}>
+                  Méthodologie — 5 critères pondérés
+                </div>
+                <Link href="/methodologie" style={{ fontSize: 12, color: 'var(--gold)', textDecoration: 'none', fontWeight: 600, letterSpacing: '0.02em' }}>
+                  Méthodologie complète →
+                </Link>
               </div>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 14 }}>
                 {[
@@ -825,9 +909,10 @@ export default function HomePage() {
             <div className="glossary-grid">
               {GLOSSARY.map((g) => (
                 <article key={g.id} id={g.id} className="glossary-term glow-card" style={{ padding: 28 }}>
-                  <h3 style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: 19, color: 'var(--white)', fontWeight: 700, letterSpacing: '-0.01em', lineHeight: 1.2, marginBottom: 14 }}>{g.term}</h3>
-                  <div style={{ fontSize: 11, color: 'var(--gold)', fontFamily: "'JetBrains Mono', monospace", letterSpacing: '0.04em', marginBottom: 14, paddingBottom: 14, borderBottom: '1px solid var(--border)' }}>{g.short}</div>
-                  <p style={{ fontSize: 14, color: 'var(--gray-1)', lineHeight: 1.7 }}>{g.def}</p>
+                  <h3 style={{ fontFamily: "'Space Grotesk', sans-serif", fontSize: 19, color: 'var(--white)', fontWeight: 700, letterSpacing: '-0.01em', lineHeight: 1.2, marginBottom: 10 }}>{g.term}</h3>
+                  <div style={{ fontSize: 11, color: 'var(--gold)', fontFamily: "'JetBrains Mono', monospace", letterSpacing: '0.04em', marginBottom: 14 }}>{g.short}</div>
+                  <p style={{ fontSize: 15, color: 'var(--white)', lineHeight: 1.45, fontWeight: 600, marginBottom: 14, paddingBottom: 14, borderBottom: '1px solid var(--border)', fontStyle: 'italic' }}>« {g.oneLine} »</p>
+                  <p style={{ fontSize: 13, color: 'var(--gray-2)', lineHeight: 1.7 }}>{g.def}</p>
                 </article>
               ))}
             </div>
@@ -839,15 +924,56 @@ export default function HomePage() {
           <div className="grid-bg" style={{ position: 'absolute', inset: 0, opacity: 0.5 }} />
           <div className="container-narrow" style={{ position: 'relative', zIndex: 2, textAlign: 'center' }}>
             <span className="eyebrow">Newsletter</span>
-            <h2 className="display-2" style={{ marginBottom: 24 }}>
+            <h2 className="display-2" style={{ marginBottom: 20 }}>
               Le Brief <span className="gradient-gold" style={{ whiteSpace: 'nowrap' }}>A-commerce.</span>
             </h2>
-            <p className="lead" style={{ maxWidth: 640, margin: '0 auto 40px' }}>
-              L'essentiel de la semaine en 5 minutes de lecture. Protocoles, études, décisions réglementaires, cas d'usage. Tous les lundis matin.
+            <p className="lead" style={{ maxWidth: 640, margin: '0 auto 32px' }}>
+              L'essentiel du commerce agentique en 5 minutes de lecture, dans votre boîte mail.
             </p>
+            <ul style={{
+              listStyle: 'none',
+              padding: 0,
+              margin: '0 auto 40px',
+              maxWidth: 480,
+              display: 'grid',
+              gap: 12,
+              textAlign: 'left',
+              fontSize: 14,
+              color: 'var(--gray-1)',
+              lineHeight: 1.5,
+            }}>
+              {[
+                'Nouveaux protocoles publiés par Anthropic, Visa, Stripe, OpenAI, Google…',
+                'Évolutions de l\'EU AI Act et des cadres réglementaires américains',
+                'Cas d\'usage réels : banque, retail, voyage, services publics',
+                'Mises à jour du classement LCA des 8 protocoles',
+              ].map((item) => (
+                <li key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: 12 }}>
+                  <span style={{
+                    flexShrink: 0,
+                    width: 18,
+                    height: 18,
+                    borderRadius: '50%',
+                    background: 'var(--gold-dim)',
+                    border: '1px solid var(--gold-glow)',
+                    color: 'var(--gold)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontSize: 11,
+                    fontWeight: 800,
+                    marginTop: 2,
+                  }}>✓</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
             <div style={{ display: 'flex', justifyContent: 'center' }}>
               <NewsletterForm />
             </div>
+            <p style={{ marginTop: 18, fontSize: 11, color: 'var(--gray-3)', letterSpacing: '0.04em' }}>
+              Gratuit. Sans spam. Désinscription en un clic.
+            </p>
           </div>
         </section>
 
@@ -886,10 +1012,12 @@ export default function HomePage() {
                 <ul style={{ listStyle: 'none', fontSize: 14, color: 'var(--gray-1)', display: 'grid', gap: 10 }}>
                   <li><a href="#definition" style={{ color: 'var(--gray-1)', textDecoration: 'none' }}>Définition</a></li>
                   <li><a href="#etudes" style={{ color: 'var(--gray-1)', textDecoration: 'none' }}>Études & chiffres</a></li>
+                  <li><a href="#conformite" style={{ color: 'var(--gray-1)', textDecoration: 'none' }}>Conformité & souveraineté</a></li>
                   <li><a href="#modes" style={{ color: 'var(--gray-1)', textDecoration: 'none' }}>Modes d'interaction</a></li>
                   <li><a href="#articles" style={{ color: 'var(--gray-1)', textDecoration: 'none' }}>Articles</a></li>
                   <li><a href="#veille" style={{ color: 'var(--gray-1)', textDecoration: 'none' }}>Veille internationale</a></li>
                   <li><a href="#classement" style={{ color: 'var(--gray-1)', textDecoration: 'none' }}>Classement</a></li>
+                  <li><Link href="/methodologie" style={{ color: 'var(--gray-1)', textDecoration: 'none' }}>Méthodologie</Link></li>
                   <li><a href="#glossaire" style={{ color: 'var(--gray-1)', textDecoration: 'none' }}>Glossaire</a></li>
                   <li><a href="#newsletter" style={{ color: 'var(--gray-1)', textDecoration: 'none' }}>Newsletter</a></li>
                 </ul>
