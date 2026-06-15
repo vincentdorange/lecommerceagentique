@@ -32,9 +32,10 @@ SELECT count(*) AS total_to_deactivate
    AND active = true;
 
 -- ── Étape 2 — soft-delete des 30 entrées fabriquées ──
+-- Note : pas de updated_at sur news_ticker (cf. 0002 schema).
+-- Pour tracer la désactivation, vérifier created_at + active=false.
 UPDATE public.news_ticker
-   SET active = false,
-       updated_at = now()
+   SET active = false
  WHERE created_at >= '2026-06-10'
    AND created_at <  '2026-06-11'
    AND active = true;
