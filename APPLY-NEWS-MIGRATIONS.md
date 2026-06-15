@@ -28,8 +28,13 @@ Ouvre https://supabase.com/dashboard → ton projet `lecommerceagentique` → **
 
 ### Option A — Via l'API admin (recommandé)
 ```bash
+# ADMIN_SECRET doit être exporté dans l'environnement local (ne JAMAIS
+# le committer en clair). Récupère sa valeur depuis Vercel → Settings
+# → Environment Variables, ou demande à Vincent.
+#   export ADMIN_SECRET="..."
+
 curl -X POST https://lecommerceagentique.fr/api/admin/news \
-  -H "Authorization: Bearer 41e7c02c9e2cc576a07433485c5dfa9e2b4fdd4197b76d6242fc3a3ad1a74ba6" \
+  -H "Authorization: Bearer $ADMIN_SECRET" \
   -H "Content-Type: application/json" \
   -d '{
     "title": "Visa publie son rapport TAP Q2 — 89 marchands intégrés",
