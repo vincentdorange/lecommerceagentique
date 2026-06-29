@@ -15,6 +15,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   const a = ARTICLE_CONTENT[slug]
   if (!a) return { title: 'Article introuvable' }
   const url = `https://lecommerceagentique.fr/articles/${slug}`
+  const ogImage = `https://lecommerceagentique.fr/articles/${slug}/opengraph-image`
   return {
     title: a.title,
     description: a.desc.length > 160 ? a.desc.slice(0, 157) + '…' : a.desc,
@@ -32,11 +33,20 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
       authors: [a.author],
       tags: a.tags,
       locale: 'fr_FR',
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: a.title,
+        },
+      ],
     },
     twitter: {
       card: 'summary_large_image',
       title: a.title,
       description: a.desc,
+      images: [ogImage],
     },
     robots: {
       index: true,
@@ -137,6 +147,10 @@ export default async function ArticlePage({ params }: { params: Params }) {
         keywords: a.tags.join(', '),
         inLanguage: 'fr-FR',
         url,
+        image: [
+          `https://lecommerceagentique.fr/articles/${slug}/opengraph-image`,
+        ],
+        thumbnailUrl: `https://lecommerceagentique.fr/articles/${slug}/opengraph-image`,
         datePublished: a.publishedAt,
         dateModified: a.publishedAt,
         wordCount: articleBody.split(/\s+/).length,

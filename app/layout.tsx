@@ -43,12 +43,21 @@ export const metadata: Metadata = {
     title: 'Le Commerce Agentique — Définition, acteurs, gouvernance',
     description:
       'Le média francophone du commerce assisté par agents IA. Glossaire, veille réglementaire, cartographie des acteurs du a-commerce.',
+    images: [
+      {
+        url: '/opengraph-image',
+        width: 1200,
+        height: 630,
+        alt: 'Le Commerce Agentique — Le média francophone du commerce assisté par agents IA',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Le Commerce Agentique',
     description:
       'Le média francophone du commerce assisté par agents IA. Glossaire, acteurs, gouvernance.',
+    images: ['/opengraph-image'],
   },
   robots: {
     index: true,
@@ -65,6 +74,12 @@ export default function RootLayout({
     <html lang="fr">
       <head>
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title="Le Commerce Agentique — Flux RSS"
+          href="https://lecommerceagentique.fr/feed.xml"
+        />
         <link
           rel="preconnect"
           href="https://fonts.googleapis.com"
