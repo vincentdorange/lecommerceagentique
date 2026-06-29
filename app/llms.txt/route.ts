@@ -11,6 +11,8 @@ export async function GET() {
     )
     .join('\n')
 
+  const articleCount = Object.keys(ARTICLE_CONTENT).length
+
   const body = `# Le Commerce Agentique
 
 > Le Commerce Agentique (lecommerceagentique.fr) est le média francophone de référence sur le commerce agentique — aussi appelé a-commerce ou agentic commerce — où des agents IA autonomes exécutent les achats à la place de l'utilisateur. Études, glossaire, cartographie d'acteurs, gouvernance, veille internationale, classement comparatif des protocoles.
@@ -37,17 +39,25 @@ L'éditeur est ACF® (Agentic Commerce Framework®), standard ouvert européen d
 - **DDAO** (Designated Delegated Agent Officer) : rôle nommé de supervision des agents IA en production, proposé par le standard ACF®, sur le modèle DPO/CISO.
 - **EU AI Act** : Règlement (UE) 2024/1689. Enforcement systèmes haut-risque Annexe III au 2 décembre 2027 après le Digital Omnibus.
 
-## Articles publiés (9)
+## Articles publiés (${articleCount})
 
 ${articles}
 
+## Flux RSS / Feeds
+
+- ${base}/feed.xml — flux RSS 2.0 (articles + veille)
+- ${base}/rss.xml — alias du flux principal
+- ${base}/sitemap.xml — sitemap XML (toutes URLs canoniques)
+
 ## Ressources de référence sur le site
 
-- Définition du commerce agentique : ${base}/#definition
+- Page d'accueil (vue d'ensemble) : ${base}/
+- Méthodologie éditoriale : ${base}/methodologie
+- Veille quotidienne (feed temps réel) : ${base}/veille
+- Définition du commerce agentique (sur la home) : ${base}/#definition
 - Études et chiffres (Gartner, McKinsey, Bain) : ${base}/#etudes
 - Modes d'interaction (Shop with me, Shop for me, A2A) : ${base}/#modes
 - Cartographie des acteurs : ${base}/#acteurs
-- Veille internationale (USA, UE, UK, Chine, Japon) : ${base}/#veille
 - Classement des protocoles a-commerce : ${base}/#classement
 - Glossaire 12 termes : ${base}/#glossaire
 - Gouvernance et conformité AI Act : ${base}/#gouvernance
@@ -68,7 +78,7 @@ ${base}/mentions-legales
 ${base}/politique-confidentialite
 ${base}/cgu
 
-Dernière mise à jour : 2026-06-09
+Dernière mise à jour : 2026-06-29
 `
 
   return new Response(body, {
